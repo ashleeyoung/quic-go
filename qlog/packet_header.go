@@ -1,6 +1,8 @@
 package qlog
 
 import (
+	"fmt"
+
 	"github.com/francoispqt/gojay"
 
 	"github.com/lucas-clemente/quic-go/internal/protocol"
@@ -24,6 +26,7 @@ func PacketTypeFromHeader(hdr *wire.Header) PacketType {
 	case protocol.PacketTypeRetry:
 		return PacketTypeRetry
 	default:
+		fmt.Printf("%#v\n", hdr)
 		panic("unknown packet type")
 	}
 }
